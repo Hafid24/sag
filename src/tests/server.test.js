@@ -12,7 +12,7 @@ afterAll(() => {
   server.close();
 });
 
-test("GET /api/hello should return Hello, World!", async () => {
+test("GET /search/?q=Locas should be json and have 'docs' property", async () => {
   const response = await fetch(`http://localhost:${PORT}/search/?q=Locas`);
   const data = await response.json();
 
