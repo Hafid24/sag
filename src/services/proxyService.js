@@ -1,10 +1,9 @@
-const { createProxyMiddleware } = require("http-proxy-middleware");
-require("dotenv").config();
+const { TARGET_API } = require("../config/env");
 
-const targetApi = process.env.TARGET_API;
+const { createProxyMiddleware } = require("http-proxy-middleware");
 
 const apiProxy = createProxyMiddleware({
-  target: targetApi,
+  target: TARGET_API,
   changeOrigin: true,
   pathRewrite: { "^/": "/search.json" },
   logger: console,
