@@ -8,7 +8,7 @@ const app = express();
 
 app.use(helmet());
 
-app.use("/api", proxyRoutes);
+app.use("/search", proxyRoutes);
 
 app.use(errorHandler);
 
