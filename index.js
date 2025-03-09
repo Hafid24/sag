@@ -1,4 +1,4 @@
-const { PORT } = require("./config/env");
+const { PORT } = require("./src/config/env.js");
 const express = require("express");
 const proxyRoutes = require("./routes/proxyRoutes.js");
 const { errorHandler } = require("./middlewares/errorHandler.js");
