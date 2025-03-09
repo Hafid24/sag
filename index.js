@@ -1,7 +1,7 @@
 const { PORT } = require("./src/config/env.js");
 const express = require("express");
-const proxyRoutes = require("./routes/proxyRoutes.js");
-const { errorHandler } = require("./middlewares/errorHandler.js");
+const proxyRoutes = require("./src/routes/proxyRoutes.js");
+const { errorHandler } = require("./src/middlewares/errorHandler.js");
 const helmet = require("helmet");
 
 const app = express();
