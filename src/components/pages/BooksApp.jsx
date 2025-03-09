@@ -6,7 +6,6 @@ import Select from "../molecules/Select";
 
 import Table from "../organisms/Table";
 const BooksApp = () => {
-  console.log(1);
   return (
     <Box
       sx={{
