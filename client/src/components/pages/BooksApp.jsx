@@ -13,7 +13,7 @@ const BooksApp = () => {
   const {
     books,
     isLoading,
-    error,
+
     setSearchQuery,
     setPageSize,
     pageSize,
@@ -24,6 +24,8 @@ const BooksApp = () => {
     isSuccess,
     setSort,
   } = useContext(BooksContext);
+
+  const error = true;
 
   const flexDirection =
     hasBooksData || error || isSuccess || isLoading ? "row" : "column";
@@ -51,14 +53,18 @@ const BooksApp = () => {
         }}
       >
         <Logo show={isSuccess || isLoading || error} />
+
         {!(isSuccess || isLoading || error) && <Message />}
+
         <Box
           sx={{
             display: "flex",
             alignItems: "center",
             marginLeft: "auto",
             marginRight:
-              isSuccess || isLoading ? "0.5rem" : { xs: "0", sm: "auto" },
+              isSuccess || isLoading
+                ? "0.5rem"
+                : { xs: "0", sm: "auto", md: "0", lg: "0", xl: "0" },
           }}
         >
           <Search setSearchQuery={setSearchQuery} />

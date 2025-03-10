@@ -25,7 +25,7 @@ const Table = ({
       {isLoading && <Progress />}
       <Select setSort={setSort} />
 
-      <Box sx={{ padding: "16px" }}>
+      <Box sx={{ padding: "1rem 1rem 1rem 0" }}>
         <Paper elevation={0} sx={{ overflow: "hidden" }}>
           <HeaderRow />
           <Divider />
