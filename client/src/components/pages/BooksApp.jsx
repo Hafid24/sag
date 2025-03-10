@@ -32,7 +32,6 @@ const BooksApp = () => {
       sx={{
         width: { xs: "100vw", sm: "100vw" },
         margin: "0 auto",
-        padding: { xs: "0 0", sm: "0 0", md: "0 1.5rem", lg: "0 1.5rem" },
       }}
     >
       <Box

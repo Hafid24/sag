@@ -8,7 +8,6 @@ export default function Pagination({
   setPage,
   setPageSize,
 }) {
-  console.log(page);
   return (
     <Box
       sx={{
@@ -24,9 +23,6 @@ export default function Pagination({
           page={page}
           shape="rounded"
           size="small"
-          hideNextButton
-          hidePrevButton
-          siblingCount={0}
           component="div"
           onPageChange={(event, newPage) => setPage(newPage)}
           rowsPerPage={pageSize}

@@ -18,7 +18,6 @@ export const BooksProvider = ({ children }) => {
   const [page, setPage] = useState(0);
   const [numFound, setNumFound] = useState(0);
 
-  useEffect(() => console.log(searchQuery), [searchQuery]);
   const { data, isLoading, error, isSuccess } = useBooks(
     searchQuery,
     sort,
