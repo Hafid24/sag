@@ -24,7 +24,7 @@ const Logo = ({ show }) => {
       }}
     >
       <img
-        src="/logo.svg"
+        src="logo.svg"
         alt="Logo"
         onError={(e) => {
           console.error("Image failed to load");
