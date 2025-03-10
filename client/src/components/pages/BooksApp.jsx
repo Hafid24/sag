@@ -71,7 +71,7 @@ const BooksApp = () => {
         </Box>
       </Box>
 
-      {isLoading && <Progress />}
+      {isLoading && !hasBooksData && <Progress />}
 
       {((isSuccess && !hasBooksData) || error) && <AlertMessage />}
       <Table
