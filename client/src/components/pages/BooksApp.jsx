@@ -30,6 +30,7 @@ const BooksApp = () => {
   return (
     <Box
       sx={{
+        maxWidth: { md: "65%", lg: "65%", xl: "65%" },
         width: { xs: "100vw", sm: "100vw" },
         margin: "0 auto",
       }}
