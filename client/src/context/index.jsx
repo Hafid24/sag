@@ -26,10 +26,10 @@ export const BooksProvider = ({ children }) => {
 
   useEffect(() => {
     if (data) {
-      setBooks(data.books);
-      setNumFound(data.num_found);
+      setBooks(data.books || []);
+      setNumFound(data.num_found || 0);
     }
-  }, [data, isLoading]);
+  }, [data]);
 
   return (
     <BooksContext.Provider
@@ -38,6 +38,7 @@ export const BooksProvider = ({ children }) => {
         isLoading,
         error,
         setSearchQuery,
+        searchQuery,
         setSort,
         setPageSize,
         pageSize,

@@ -2,7 +2,7 @@ import React from "react";
 import { Box } from "@mui/material";
 
 const Logo = ({ show }) => {
-  const logoStyles = show
+  const logoStyles = !show
     ? {
         width: "120px",
         height: "38px",

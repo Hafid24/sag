@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const fetchData = async (searchQuery, sort, pageSize = 5, page = 1) => {
-  if (searchQuery === "") return [];
+  if (searchQuery === "") return { books: [], num_found: 0 };
 
   const sortQuery = sort === "default" ? "" : `&sort=${sort}`;
 

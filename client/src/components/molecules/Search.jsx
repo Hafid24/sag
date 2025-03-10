@@ -3,8 +3,9 @@ import { Box, TextField, InputAdornment, IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 
-export default function Search({ setSearchQuery }) {
-  const [query, setQuery] = useState("");
+export default function Search({ onClick, searchQuery }) {
+  const [query, setQuery] = useState(searchQuery);
+
   return (
     <Box
       sx={{
@@ -13,15 +14,15 @@ export default function Search({ setSearchQuery }) {
     >
       <TextField
         id="outlined-controlled"
-        label="Search"
         placeholder="Search…"
         size="small"
         sx={{
           width: "100%",
         }}
+        value={query}
         onKeyUp={(e) => {
           if (e.key === "Enter") {
-            setSearchQuery(query);
+            onClick(query);
           }
         }}
         onChange={(e) => setQuery(e.target.value)}
@@ -29,7 +30,7 @@ export default function Search({ setSearchQuery }) {
           endAdornment: (
             <InputAdornment position="end">
               <IconButton>
-                <SearchIcon onClick={() => setSearchQuery(query)} />
+                <SearchIcon onClick={() => onClick(query)} />
               </IconButton>
             </InputAdornment>
           ),

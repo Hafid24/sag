@@ -1,15 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Box } from "@mui/material";
 import Logo from "../atoms/Logo";
 import Search from "../molecules/Search";
 import AlertMessage from "../atoms/AlertMessage";
 import Table from "../organisms/Table";
-import Message from "../atoms/Message";
 import Progress from "../atoms/Progress";
 
-import BooksContext from "../../context";
-
-const BooksApp = () => {
+const BooksApp = ({ props }) => {
   const {
     books,
     isLoading,
@@ -23,9 +20,9 @@ const BooksApp = () => {
     hasBooksData,
     isSuccess,
     setSort,
-  } = useContext(BooksContext);
-  const flexDirection =
-    hasBooksData || error || isSuccess || isLoading ? "row" : "column";
+    searchQuery,
+  } = props;
+
   return (
     <Box
       sx={{
@@ -42,32 +39,24 @@ const BooksApp = () => {
           alignItems: "center",
           flexDirection: {
             xs: "column",
-            sm: flexDirection,
-            md: flexDirection,
-            lg: flexDirection,
+            sm: "row",
+            md: "row",
+            lg: "row",
           },
           padding: "0.5rem 0 0 0",
         }}
       >
-        <Logo show={isSuccess || isLoading || error} />
-        {!(isSuccess || isLoading || error) && <Message />}
+        <Logo show={false} />
+
         <Box
           sx={{
             display: "flex",
             alignItems: "center",
             marginLeft: "auto",
-            marginRight: isLoading
-              ? !hasBooksData
-                ? { xs: "auto", sm: "1rem", md: "1rem", lg: "1rem", xl: "1rem" }
-                : "1rem"
-              : isSuccess
-              ? "1rem"
-              : error
-              ? { xs: "0", sm: "auto", md: "0", lg: "0", xl: "0" }
-              : { xs: "auto", sm: "auto" },
+            marginRight: "1rem",
           }}
         >
-          <Search setSearchQuery={setSearchQuery} />
+          <Search onClick={setSearchQuery} searchQuery={searchQuery} />
         </Box>
       </Box>
 
@@ -77,7 +66,7 @@ const BooksApp = () => {
       <Table
         setSort={setSort}
         isLoading={isLoading}
-        show={hasBooksData}
+        show={hasBooksData || error}
         books={books}
         setPage={setPage}
         setPageSize={setPageSize}
