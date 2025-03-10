@@ -1,3 +1,8 @@
+
+## Preview URLs: 
+   - Frontend: https://hafid24.github.io/sag
+   - Backend: https://sag-h2k6.onrender.com
+
 ## Getting Started
 
 To get started with this project, follow these steps:
