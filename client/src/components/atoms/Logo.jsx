@@ -8,7 +8,7 @@ const Logo = ({ show }) => {
         height: "38px",
         margin: {
           xs: "3rem",
-          sm: "3rem",
+          sm: "auto auto auto 0",
           md: "auto auto auto 0",
           lg: "auto auto auto 0",
         },
