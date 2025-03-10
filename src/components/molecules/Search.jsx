@@ -1,8 +1,10 @@
 import { Box, TextField, InputAdornment, IconButton } from "@mui/material";
 
 import SearchIcon from "@mui/icons-material/Search";
+import { useState } from "react";
 
-export default function Search() {
+export default function Search({ setSearchQuery }) {
+  const [query, setQuery] = useState("");
   return (
     <Box
       sx={{
@@ -17,11 +19,12 @@ export default function Search() {
         sx={{
           width: "100%",
         }}
+        onChange={(e) => setQuery(e.target.value)}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
               <IconButton>
-                <SearchIcon />
+                <SearchIcon onClick={() => setSearchQuery(query)} />
               </IconButton>
             </InputAdornment>
           ),

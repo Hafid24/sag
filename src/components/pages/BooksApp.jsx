@@ -1,11 +1,30 @@
-import React, { useMemo } from "react";
+import React, { useContext } from "react";
 import { Box } from "@mui/material";
 import Logo from "../atoms/Logo";
 import Search from "../molecules/Search";
-import Select from "../molecules/Select";
-
+import AlertMessage from "../atoms/AlertMessage";
 import Table from "../organisms/Table";
+import Message from "../atoms/Message";
+import Progress from "../atoms/Progress";
+
+import BooksContext from "../../context";
+
 const BooksApp = () => {
+  const {
+    books,
+    isLoading,
+    error,
+    setSearchQuery,
+    setPageSize,
+    pageSize,
+    setPage,
+    page,
+    numFound,
+    hasBooksData,
+    isSuccess,
+    setSort,
+  } = useContext(BooksContext);
+
   return (
     <Box
       sx={{
@@ -19,14 +38,32 @@ const BooksApp = () => {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          flexDirection:
+            hasBooksData || isSuccess || isLoading ? "row" : "column",
           padding: "16px",
         }}
       >
-        <Logo />
-        <Search />
+        <Logo show={isSuccess || isLoading} />
+        {!(isSuccess || isLoading) && <Message />}
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <Search setSearchQuery={setSearchQuery} />
+        </Box>
       </Box>
-      <Select />
-      <Table />
+
+      {isLoading && <Progress />}
+
+      {((isSuccess && !hasBooksData) || error) && <AlertMessage />}
+      <Table
+        setSort={setSort}
+        isLoading={isLoading}
+        show={hasBooksData}
+        books={books}
+        setPage={setPage}
+        setPageSize={setPageSize}
+        pageSize={pageSize}
+        page={page}
+        numFound={numFound}
+      />
     </Box>
   );
 };

@@ -16,10 +16,10 @@ export default function Row({ row, index, length }) {
           }}
         >
           <Cell value={row.title} />
-          <Cell value={row.author} />
-          <Cell value={row.publish} />
-          <Cell value={row.rate} />
-          <Cell value={row.first} />
+          <Cell value={row.author_name.join(", ")} />
+          <Cell value={row.publish_year[0]} />
+          <Cell value={parseFloat(row.rating).toFixed(1)} />
+          <Cell value={row.first_sentence?.[0] || ""} />
         </Box>
       </Box>
       {index < length && <Divider />}

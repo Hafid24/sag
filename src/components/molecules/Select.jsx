@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import {
   Box,
   FormControl,
@@ -6,14 +6,20 @@ import {
   MenuItem,
   Select as S,
 } from "@mui/material";
-const Select = ({ handleStatusChange }) => {
+const Select = ({ setSort }) => {
   const [value, setValue] = useState("");
-  console.log(0);
+  const handleChange = useCallback(
+    (event) => {
+      setValue(event.target.value);
+      setSort(event.target.value);
+    },
+    [setSort]
+  );
   const options = useMemo(
     () => [
       { label: "Default", value: "default" },
-      { label: "Newest", value: "newest" },
-      { label: "Oldest", value: "oldest" },
+      { label: "Newest", value: "new" },
+      { label: "Oldest", value: "old" },
     ],
     []
   );
@@ -33,10 +39,14 @@ const Select = ({ handleStatusChange }) => {
           id="sort-select"
           value={value}
           label="Sort"
-          onChange={handleStatusChange}
+          onChange={handleChange}
         >
           {options.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
+            <MenuItem
+              sx={{ textAlign: "left" }}
+              key={option.value}
+              value={option.value}
+            >
               {option.label}
             </MenuItem>
           ))}

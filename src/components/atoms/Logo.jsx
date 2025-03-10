@@ -1,16 +1,28 @@
 import React from "react";
-import { Typography } from "@mui/material";
+import { Box } from "@mui/material";
 
-const Logo = () => {
+const Logo = ({ show }) => {
+  const logoStyles = show
+    ? { width: "120px", height: "38px", margin: "auto auto auto 0" }
+    : { width: "180px", height: "57px", marginTop: "3rem" };
   return (
-    <Typography
-      variant="h6"
-      noWrap
-      component="div"
-      sx={{ display: { xs: "none", sm: "block" }, fontWeight: "bold" }}
+    <Box
+      sx={{
+        marginBottom: "1rem",
+        display: "flex",
+        alignItems: "center",
+        ...logoStyles,
+      }}
     >
-      COMPANY LOGO
-    </Typography>
+      <img
+        src="/logo.svg"
+        alt="Logo"
+        onError={(e) => {
+          console.error("Image failed to load");
+          e.target.style.display = "none";
+        }}
+      />
+    </Box>
   );
 };
 

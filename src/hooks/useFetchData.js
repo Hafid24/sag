@@ -9,7 +9,7 @@ const fetchBookRating = async (key) => {
   }
 
   try {
-    const response = await fetch(`/api/${key}/ratings.json`);
+    const response = await fetch(`/api${key}/ratings.json`);
     if (!response.ok) throw new Error("Failed to fetch rating");
     const ratingData = await response.json();
     const averageRating = ratingData?.summary?.average || 0;
@@ -25,7 +25,6 @@ const fetchData = async (searchQuery, sort, pageSize = 5, page = 1) => {
   if (searchQuery === "") return [];
 
   const sortQuery = sort === "default" ? "" : `&sort=${sort}`;
-  console.log(sortQuery, sort, "xxxxxxxxxxxxxxxxxx");
 
   const response = await fetch(
     `${API_BASE_URL}?q=${searchQuery}&offset=${

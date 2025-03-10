@@ -3,11 +3,12 @@ import { Box, TablePagination, Chip } from "@mui/material";
 
 export default function Pagination({
   page,
-  rowsPerPage,
-  allRowsLength,
-  handleChangePage,
-  handleChangeRowsPerPage,
+  pageSize,
+  numFound,
+  setPage,
+  setPageSize,
 }) {
+  console.log(page);
   return (
     <Box
       sx={{
@@ -19,18 +20,18 @@ export default function Pagination({
     >
       <Box sx={{ display: "flex", alignItems: "center" }}>
         <TablePagination
-          count={Math.ceil(allRowsLength / rowsPerPage)}
+          count={Math.ceil(numFound / pageSize)}
           page={page}
-          onChange={handleChangePage}
           shape="rounded"
           size="small"
           hideNextButton
           hidePrevButton
           siblingCount={0}
           component="div"
-          onPageChange={handleChangePage}
-          rowsPerPage={rowsPerPage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
+          onPageChange={(event, newPage) => setPage(newPage)}
+          rowsPerPage={pageSize}
+          rowsPerPageOptions={[5, 10, 15]}
+          onRowsPerPageChange={(e) => setPageSize(e.target.value)}
         />
       </Box>
     </Box>

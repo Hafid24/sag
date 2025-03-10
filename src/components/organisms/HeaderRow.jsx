@@ -4,7 +4,7 @@ import Cell from "../atoms/Cell";
 
 export default function HeaderRow() {
   return (
-    <Box sx={{ padding: "16px" }}>
+    <Box>
       <Paper
         elevation={0}
         variant="body1"
