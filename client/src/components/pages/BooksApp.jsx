@@ -56,14 +56,15 @@ const BooksApp = () => {
             display: "flex",
             alignItems: "center",
             marginLeft: "auto",
-            marginRight:
-              isLoading || !hasBooksData
-                ? { xs: "auto" }
-                : isSuccess
-                ? "1rem"
-                : error
-                ? { xs: "0", sm: "auto", md: "0", lg: "0", xl: "0" }
-                : { xs: "0", sm: "auto" },
+            marginRight: isLoading
+              ? !hasBooksData
+                ? { xs: "auto", sm: "1rem", md: "1rem", lg: "1rem", xl: "1rem" }
+                : "1rem"
+              : isSuccess
+              ? "1rem"
+              : error
+              ? { xs: "0", sm: "auto", md: "0", lg: "0", xl: "0" }
+              : { xs: "auto", sm: "auto" },
           }}
         >
           <Search setSearchQuery={setSearchQuery} />
