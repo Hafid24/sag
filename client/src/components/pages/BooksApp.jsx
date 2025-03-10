@@ -13,25 +13,24 @@ const BooksApp = () => {
   const {
     books,
     isLoading,
-    error,
     setSearchQuery,
     setPageSize,
     pageSize,
     setPage,
     page,
+    error,
     numFound,
     hasBooksData,
     isSuccess,
     setSort,
   } = useContext(BooksContext);
-
   const flexDirection =
     hasBooksData || error || isSuccess || isLoading ? "row" : "column";
   return (
     <Box
       sx={{
         width: { xs: "100vw", sm: "100vw", md: "100vw" },
-        maxWidth: { sm: "90%%", md: "65%", lg: "65%" },
+        maxWidth: { sm: "90%%", md: "60rem", lg: "60rem" },
         minWidth: { md: "50rem" },
         margin: "0 auto",
       }}
@@ -47,22 +46,24 @@ const BooksApp = () => {
             md: flexDirection,
             lg: flexDirection,
           },
-          padding: { xs: "0rem", sm: "0.5rem", md: "0.5rem", lg: "0.5rem" },
+          padding: "0.5rem 0 0 0",
         }}
       >
         <Logo show={isSuccess || isLoading || error} />
-
         {!(isSuccess || isLoading || error) && <Message />}
-
         <Box
           sx={{
             display: "flex",
             alignItems: "center",
             marginLeft: "auto",
             marginRight:
-              isSuccess || isLoading
-                ? "0.5rem"
-                : { xs: "0", sm: "auto", md: "0", lg: "0", xl: "0" },
+              isLoading || !hasBooksData
+                ? { xs: "auto" }
+                : isSuccess
+                ? "1rem"
+                : error
+                ? { xs: "0", sm: "auto", md: "0", lg: "0", xl: "0" }
+                : { xs: "0", sm: "auto" },
           }}
         >
           <Search setSearchQuery={setSearchQuery} />
