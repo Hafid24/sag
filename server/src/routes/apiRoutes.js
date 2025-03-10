@@ -4,7 +4,6 @@ const {
   fetchBooksData,
   filterUniqueBooks,
   addRatingsToBooks,
-  fetchBookRating,
 } = require("../utils");
 
 const router = express.Router();
