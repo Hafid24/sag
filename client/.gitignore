@@ -4,7 +4,6 @@ yarn-error.log*
 
 dist/  
 
-.env  
 .env.local  
 .env.*.local  
 
