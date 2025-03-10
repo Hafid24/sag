@@ -13,7 +13,7 @@ const BooksApp = () => {
   const {
     books,
     isLoading,
-
+    error,
     setSearchQuery,
     setPageSize,
     pageSize,
@@ -24,8 +24,6 @@ const BooksApp = () => {
     isSuccess,
     setSort,
   } = useContext(BooksContext);
-
-  const error = true;
 
   const flexDirection =
     hasBooksData || error || isSuccess || isLoading ? "row" : "column";
