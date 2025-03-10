@@ -19,6 +19,11 @@ export default function Search({ setSearchQuery }) {
         sx={{
           width: "100%",
         }}
+        onKeyUp={(e) => {
+          if (e.key === "Enter") {
+            setSearchQuery(query);
+          }
+        }}
         onChange={(e) => setQuery(e.target.value)}
         InputProps={{
           endAdornment: (

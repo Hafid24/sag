@@ -35,6 +35,7 @@ const Select = ({ setSort }) => {
       <FormControl sx={{ width: "200px" }} size="small">
         <InputLabel id="sort-select-label">Sort</InputLabel>
         <S
+          sx={{ textAlign: "left" }}
           labelId="sort-select-label"
           id="sort-select"
           value={value}

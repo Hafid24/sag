@@ -3,7 +3,16 @@ import { Box } from "@mui/material";
 
 const Logo = ({ show }) => {
   const logoStyles = show
-    ? { width: "120px", height: "38px", margin: "auto auto auto 0" }
+    ? {
+        width: "120px",
+        height: "38px",
+        margin: {
+          xs: "3rem",
+          sm: "3rem",
+          md: "auto auto auto 0",
+          lg: "auto auto auto 0",
+        },
+      }
     : { width: "180px", height: "57px", marginTop: "3rem" };
   return (
     <Box

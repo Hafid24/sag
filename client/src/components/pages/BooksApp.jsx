@@ -25,12 +25,14 @@ const BooksApp = () => {
     setSort,
   } = useContext(BooksContext);
 
+  const flexDirection =
+    hasBooksData || isSuccess || isLoading ? "row" : "column";
   return (
     <Box
       sx={{
-        width: { xs: "100%", sm: "100%", md: "72rem", lg: "72rem" },
+        width: { xs: "100vw", sm: "100vw" },
         margin: "0 auto",
-        padding: "0 24px",
+        padding: { xs: "0 0", sm: "0 0", md: "0 1.5rem", lg: "0 1.5rem" },
       }}
     >
       <Box
@@ -38,8 +40,12 @@ const BooksApp = () => {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          flexDirection:
-            hasBooksData || isSuccess || isLoading ? "row" : "column",
+          flexDirection: {
+            xs: "column",
+            sm: "column",
+            md: flexDirection,
+            lg: flexDirection,
+          },
           padding: "16px",
         }}
       >
