@@ -1,0 +1,21 @@
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+yarn-debug.log*
+yarn-error.log*
+
+
+# Cache & Temp Files
+coverage/
+.DS_Store
+*.swp
+.vscode/

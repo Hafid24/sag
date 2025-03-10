@@ -1,0 +1,17 @@
+node_modules  
+yarn-debug.log*  
+yarn-error.log*  
+
+dist/  
+
+.env.local  
+.env.*.local  
+
+.vite/  
+
+.vscode/  
+.DS_Store  
+
+*.log  
+logs  
+logs/**  
