@@ -8,7 +8,7 @@ const fetchData = async (searchQuery, sort, pageSize = 5, page = 1) => {
   const sortQuery = sort === "default" ? "" : `&sort=${sort}`;
 
   const response = await fetch(
-    `${API_BASE_URL}?q=${searchQuery}&offset=${
+    `${API_BASE_URL}/?q=${searchQuery}&offset=${
       page * pageSize
     }&limit=${pageSize}${sortQuery}`
   );

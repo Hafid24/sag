@@ -7,7 +7,7 @@ const apiProxy = createProxyMiddleware({
   pathRewrite: (path) => {
     if (!path.includes("/works/")) {
       return `/search.json?${path.replace(
-        "/?",
+        "/api/?",
         ""
       )}&fields=key,title,author_name,publish_year,first_sentence`;
     }

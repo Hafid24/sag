@@ -1,5 +1,5 @@
 async function fetchBooksData(baseUrl, query) {
-  const response = await fetch(`${baseUrl}/search${query}`);
+  const response = await fetch(`${baseUrl}/proxy${query}`);
   if (!response.ok) throw new Error("Failed to fetch books data");
   return response.json();
 }
@@ -30,7 +30,7 @@ async function addRatingsToBooks(baseUrl, books) {
 
 const fetchBookRating = async (baseUrl, key) => {
   try {
-    const response = await fetch(`${baseUrl}/api${key}/ratings.json`);
+    const response = await fetch(`${baseUrl}/proxy${key}/ratings.json`);
     if (!response.ok) throw new Error("Failed to fetch rating");
     const ratingData = await response.json();
     const averageRating = ratingData?.summary?.average || 0;
@@ -45,5 +45,4 @@ module.exports = {
   fetchBooksData,
   filterUniqueBooks,
   addRatingsToBooks,
-  fetchBookRating,
 };

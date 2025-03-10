@@ -5,6 +5,7 @@
   "scripts": {
     "test": "jest",
     "start": "node index.js",
+    "build": "npm install --prefix ./client && npm run build --prefix ./client && npm install",
     "watch": "nodemon index.js"
   },
   "keywords": [],
