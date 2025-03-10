@@ -1,18 +1,15 @@
 import Home from "./components/pages/Home";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import BooksApp from "./components/pages/BooksApp";
 import BooksContext from "./context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 function App() {
   const props = useContext(BooksContext);
+  const [home, setHome] = useState(true);
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home props={{ ...props }} />} />
-        <Route path="/table" element={<BooksApp props={{ ...props }} />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      {!home && <BooksApp props={{ ...props, setHome: setHome }} />}{" "}
+      {home && <Home props={{ ...props, setHome: setHome }} />}
+    </>
   );
 }
 

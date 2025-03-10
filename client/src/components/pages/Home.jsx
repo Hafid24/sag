@@ -2,18 +2,15 @@ import React from "react";
 import { Box } from "@mui/material";
 import Logo from "../atoms/Logo";
 import Search from "../molecules/Search";
-import { useNavigate, Navigate } from "react-router-dom";
 import Message from "../atoms/Message";
 import Progress from "../atoms/Progress";
 
 const Home = ({ props }) => {
-  const { isLoading, setSearchQuery, searchQuery } = props;
-
-  const navigate = useNavigate();
+  const { isLoading, setSearchQuery, searchQuery, setHome } = props;
 
   const navigateToTable = (query) => {
     setSearchQuery(query);
-    navigate("/table");
+    setHome(false);
   };
 
   return (
