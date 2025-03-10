@@ -1,7 +1,7 @@
 
 ## Preview URLs: 
-   - Frontend: https://hafid24.github.io/sag
-   - Backend: https://sag-h2k6.onrender.com
+   - Frontend: https://hafid24.github.io/sag  
+   - Backend: https://sag-h2k6.onrender.com (example: https://sag-h2k6.onrender.com?q=Luca&offset=0&limit=5)
 
 ## Getting Started
 
