@@ -57,13 +57,8 @@ const BooksApp = () => {
             display: "flex",
             alignItems: "center",
             marginLeft: "auto",
-            marginRight: {
-              xs: isSuccess ? "1rem" : "auto",
-              sm: "auto",
-              md: "auto",
-              lg: "auto",
-              xl: "auto",
-            },
+            marginRight:
+              isSuccess || isLoading ? "0.5rem" : { xs: "0", sm: "auto" },
           }}
         >
           <Search setSearchQuery={setSearchQuery} />
